@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Vezdekod_VkMiniApps_BitFlashlight/static/css/main.8468f5b2.chunk.css",
-    "main.js": "/Vezdekod_VkMiniApps_BitFlashlight/static/js/main.c62a6451.chunk.js",
-    "main.js.map": "/Vezdekod_VkMiniApps_BitFlashlight/static/js/main.c62a6451.chunk.js.map",
+    "main.css": "/Vezdekod_VkMiniApps_BitFlashlight/static/css/main.5ed6e0bc.chunk.css",
+    "main.js": "/Vezdekod_VkMiniApps_BitFlashlight/static/js/main.4ad1585d.chunk.js",
+    "main.js.map": "/Vezdekod_VkMiniApps_BitFlashlight/static/js/main.4ad1585d.chunk.js.map",
     "runtime-main.js": "/Vezdekod_VkMiniApps_BitFlashlight/static/js/runtime-main.6c0414fc.js",
     "runtime-main.js.map": "/Vezdekod_VkMiniApps_BitFlashlight/static/js/runtime-main.6c0414fc.js.map",
     "static/css/2.a2ab3232.chunk.css": "/Vezdekod_VkMiniApps_BitFlashlight/static/css/2.a2ab3232.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.84743a96.chunk.js.map": "/Vezdekod_VkMiniApps_BitFlashlight/static/js/2.84743a96.chunk.js.map",
     "index.html": "/Vezdekod_VkMiniApps_BitFlashlight/index.html",
     "static/css/2.a2ab3232.chunk.css.map": "/Vezdekod_VkMiniApps_BitFlashlight/static/css/2.a2ab3232.chunk.css.map",
-    "static/css/main.8468f5b2.chunk.css.map": "/Vezdekod_VkMiniApps_BitFlashlight/static/css/main.8468f5b2.chunk.css.map",
+    "static/css/main.5ed6e0bc.chunk.css.map": "/Vezdekod_VkMiniApps_BitFlashlight/static/css/main.5ed6e0bc.chunk.css.map",
     "static/js/2.84743a96.chunk.js.LICENSE.txt": "/Vezdekod_VkMiniApps_BitFlashlight/static/js/2.84743a96.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6c0414fc.js",
     "static/css/2.a2ab3232.chunk.css",
     "static/js/2.84743a96.chunk.js",
-    "static/css/main.8468f5b2.chunk.css",
-    "static/js/main.c62a6451.chunk.js"
+    "static/css/main.5ed6e0bc.chunk.css",
+    "static/js/main.4ad1585d.chunk.js"
   ]
 }

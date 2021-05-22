@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/panels/BitFlashlight.css"],"names":[],"mappings":"AAAA,UACI,0BAAmB,CAAnB,kBAAmB,CACnB,UAAY,CACZ,cAAe,CACf,WACJ","file":"main.8468f5b2.chunk.css","sourcesContent":[".checkbox {\r\n    transform: scale(2);\r\n    opacity: 0.9;\r\n    cursor: pointer;\r\n    margin: 10px;\r\n}"]}
