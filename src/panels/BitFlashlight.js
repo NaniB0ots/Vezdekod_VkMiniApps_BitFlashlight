@@ -18,16 +18,17 @@ class TeamCard extends React.Component {
             is_available: 123,
             checkboxList: [true, true, true, true, true, true, true, true],
             is_started: false
-        }
+        };
+        this.initFlashlight();
     }
 
 
     initFlashlight() {
+        console.log('Получение доступа...')
         bridge.send("VKWebAppFlashGetInfo").then(
             data => {
                 console.log(data);
                 console.log('Доступ получен');
-                bridge.send("VKWebAppFlashSetLevel", {"level": 1});
                 this.state.is_available = data.is_available
                 return true;
             }
@@ -77,13 +78,14 @@ class TeamCard extends React.Component {
 
             clearInterval(timer);
             console.log('Остановлено!')
+            bridge.send("VKWebAppFlashSetLevel", {"level": 0});
+            console.log(`Фонарь выключен`);
         }
 
     }
 
 
     render() {
-        this.initFlashlight();
 
 
         return (
