@@ -44,30 +44,30 @@ class TeamCard extends React.Component {
         console.log(this.state.checkboxList[number]);
     }
 
+
     render() {
         this.initFlashlight();
 
-        let count = 8;
+        let item = 0;
 
-        // let timer = setInterval(function () {
-        //     if (count % 2 === 0) {
-        //         bridge.send("VKWebAppFlashSetLevel", {"level": 0});
-        //         console.log('Фонарь Выключен');
-        //     } else {
-        //         bridge.send("VKWebAppFlashSetLevel", {"level": 1});
-        //         console.log('Фонарь включен');
-        //
-        //     }
-        //
-        //     if (count <= 0) {
-        //         clearInterval(timer);
-        //         console.log("done");
-        //         count = 8
-        //     } else {
-        //         console.log(count);
-        //     }
-        //     count--;
-        // }, 1000);
+        setInterval(() => {
+
+            if (this.state.checkboxList[item]) {
+                bridge.send("VKWebAppFlashSetLevel", {"level": 1});
+                console.log(`Фонарь ${item} включен`);
+            } else {
+                bridge.send("VKWebAppFlashSetLevel", {"level": 0});
+                console.log(`Фонарь ${item} выключен`);
+            }
+
+            item++;
+
+            if (item === 8) {
+                console.log("done");
+                item = 0
+            }
+
+        }, 1000);
 
 
         return (
