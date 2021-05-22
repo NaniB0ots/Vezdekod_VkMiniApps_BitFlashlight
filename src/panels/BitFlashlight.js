@@ -4,33 +4,22 @@ import {
     Div,
     Panel,
     PanelHeader,
-    View, PanelHeaderContent
+    View, PanelHeaderContent, Checkbox
 } from "@vkontakte/vkui";
 import bridge from "@vkontakte/vk-bridge";
-
+import BitFlashlight from "./BitFlashlight.css"
 
 class TeamCard extends React.Component {
-    is_available = 123;
-
-    init() {
-
-        console.log('asd!!')
-        bridge.send('VKWebAppInit', {});
 
 
-        bridge.send("VKWebAppShowWallPostBox", {"message": "Hello!"}).then(
-            data => console.log(data)
-        ).catch(
-            error => console.log(error)
-        );
-        bridge.send("VKWebAppShowOrderBox", {type: "item", item: "item_id_123"});
-        bridge.subscribe((e) => {
-                if (e.type == 'VKWebAppShowOrderBoxResult') {
-                    console.log(e.data.status);
-                }
-            }
-        );
+    constructor(props) {
+        super(props);
+        this.state = {
+            is_available: 123,
+            checkboxList: [true, true, true, true, true, true, true, true]
+        }
     }
+
 
     initFlashlight() {
         bridge.send("VKWebAppFlashGetInfo").then(
@@ -38,7 +27,7 @@ class TeamCard extends React.Component {
                 console.log(data);
                 console.log('Доступ получен');
                 bridge.send("VKWebAppFlashSetLevel", {"level": 1});
-                this.is_available = data.is_available
+                this.state.is_available = data.is_available
                 return true;
             }
         ).catch(
@@ -49,30 +38,36 @@ class TeamCard extends React.Component {
         );
     }
 
+    handleChangeChk(number) {
+        this.state.checkboxList[number] = !this.state.checkboxList[number]
+        console.log(number);
+        console.log(this.state.checkboxList[number]);
+    }
 
     render() {
         this.initFlashlight();
 
-        let count = 10;
+        let count = 8;
 
-        let timer = setInterval(function () {
-            if (count % 2 === 0) {
-                bridge.send("VKWebAppFlashSetLevel", {"level": 0});
-                console.log('Фонарь Выключен');
-            } else {
-                bridge.send("VKWebAppFlashSetLevel", {"level": 1});
-                console.log('Фонарь включен');
-
-            }
-
-            if (count <= 0) {
-                clearInterval(timer);
-                console.log("done");
-            } else {
-                console.log(count);
-            }
-            count--;
-        }, 1000);
+        // let timer = setInterval(function () {
+        //     if (count % 2 === 0) {
+        //         bridge.send("VKWebAppFlashSetLevel", {"level": 0});
+        //         console.log('Фонарь Выключен');
+        //     } else {
+        //         bridge.send("VKWebAppFlashSetLevel", {"level": 1});
+        //         console.log('Фонарь включен');
+        //
+        //     }
+        //
+        //     if (count <= 0) {
+        //         clearInterval(timer);
+        //         console.log("done");
+        //         count = 8
+        //     } else {
+        //         console.log(count);
+        //     }
+        //     count--;
+        // }, 1000);
 
 
         return (
@@ -89,7 +84,25 @@ class TeamCard extends React.Component {
                     </PanelHeader>
 
                     <Group>
-                        <Div>is_available: {this.is_available}</Div>
+                        <Div>
+                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[0]}
+                                   onChange={() => this.handleChangeChk(0)}/>
+                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[1]}
+                                   onChange={() => this.handleChangeChk(1)}/>
+                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[2]}
+                                   onChange={() => this.handleChangeChk(2)}/>
+                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[3]}
+                                   onChange={() => this.handleChangeChk(3)}/>
+                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[4]}
+                                   onChange={() => this.handleChangeChk(4)}/>
+                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[5]}
+                                   onChange={() => this.handleChangeChk(5)}/>
+                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[6]}
+                                   onChange={() => this.handleChangeChk(6)}/>
+                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[7]}
+                                   onChange={() => this.handleChangeChk(7)}/>
+
+                        </Div>
                     </Group>
 
                 </Panel>

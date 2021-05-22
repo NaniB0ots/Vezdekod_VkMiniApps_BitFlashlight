@@ -1,0 +1,6 @@
+.checkbox {
+    transform: scale(2);
+    opacity: 0.9;
+    cursor: pointer;
+    margin: 10px;
+}
