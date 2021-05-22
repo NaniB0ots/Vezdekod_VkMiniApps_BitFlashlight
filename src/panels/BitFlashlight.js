@@ -9,9 +9,14 @@ import {
 import bridge from "@vkontakte/vk-bridge";
 
 
-class TeamCard extends React.Component{
+class TeamCard extends React.Component {
     init() {
+
         console.log('asd!!')
+        bridge.send('VKWebAppInit', {});
+
+
+
         bridge.send("VKWebAppShowWallPostBox", {"message": "Hello!"}).then(
             data => console.log(data)
         ).catch(
@@ -28,7 +33,6 @@ class TeamCard extends React.Component{
 
     render() {
         return (
-
             <View activePanel="main">
                 <Panel id="main">
                     <PanelHeader>
@@ -37,7 +41,6 @@ class TeamCard extends React.Component{
                             status={
                                 "Created by NaniB0ots"
                             }
-
                         >
                         </PanelHeaderContent>
                     </PanelHeader>

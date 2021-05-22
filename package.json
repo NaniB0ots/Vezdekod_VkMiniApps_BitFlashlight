@@ -1,4 +1,5 @@
 {
+  "homepage": "https://nanib0ots.github.io/Vezdekod_VkMiniApps_BitFlashlight",
   "name": "vezdekod_vk_mini_apps_bit_flashlight",
   "version": "1.0.0",
   "description": "",
@@ -14,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "gh-pages": "^3.1.0",
     "react-hot-loader": "^4.13.0",
     "react-scripts": "^4.0.3"
   },
