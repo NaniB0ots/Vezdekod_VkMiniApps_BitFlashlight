@@ -9,6 +9,7 @@ import {
 import bridge from "@vkontakte/vk-bridge";
 import BitFlashlight from "./BitFlashlight.css"
 
+let timer;
 
 class TeamCard extends React.Component {
     constructor(props) {
@@ -40,26 +41,13 @@ class TeamCard extends React.Component {
 
     handleChangeChk(number) {
         this.state.checkboxList[number] = !this.state.checkboxList[number]
-        console.log(number);
-        console.log(this.state.checkboxList[number]);
     }
 
 
-    handleStartButton(is_started) {
-        this.setState({
-            checkboxList: this.state.checkboxList,
-            is_started: !is_started
-        })
-        console.log(this.state.is_started)
-
-    }
-
-    render() {
-        this.initFlashlight();
-
+    start_dance() {
+        console.log('Начали!')
         let item = 0;
-
-        setInterval(() => {
+        timer = setInterval(() => {
 
             if (this.state.checkboxList[item]) {
                 bridge.send("VKWebAppFlashSetLevel", {"level": 1});
@@ -72,11 +60,30 @@ class TeamCard extends React.Component {
             item++;
 
             if (item === 8) {
-                console.log("done");
                 item = 0
             }
 
         }, 1000);
+    }
+
+    handleStartButton(is_started) {
+        this.setState({
+            checkboxList: this.state.checkboxList,
+            is_started: !is_started
+        })
+        if (!is_started) {
+            this.start_dance()
+        } else {
+
+            clearInterval(timer);
+            console.log('Остановлено!')
+        }
+
+    }
+
+
+    render() {
+        this.initFlashlight();
 
 
         return (
@@ -115,7 +122,6 @@ class TeamCard extends React.Component {
 
 
                         <Div>
-                            {this.state.is_started +'as'}
                             {!this.state.is_started ?
                                 <Button onClick={() => this.handleStartButton(this.state.is_started)}
                                         mode="commerce">Старт</Button>
