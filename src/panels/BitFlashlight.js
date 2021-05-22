@@ -103,33 +103,52 @@ class TeamCard extends React.Component {
 
                     <Group>
                         <Div>
-                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[0]}
-                                   onChange={() => this.handleChangeChk(0)}/>
-                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[1]}
-                                   onChange={() => this.handleChangeChk(1)}/>
-                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[2]}
-                                   onChange={() => this.handleChangeChk(2)}/>
-                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[3]}
-                                   onChange={() => this.handleChangeChk(3)}/>
-                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[4]}
-                                   onChange={() => this.handleChangeChk(4)}/>
-                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[5]}
-                                   onChange={() => this.handleChangeChk(5)}/>
-                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[6]}
-                                   onChange={() => this.handleChangeChk(6)}/>
-                            <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[7]}
-                                   onChange={() => this.handleChangeChk(7)}/>
-
+                            <div className={'checkboxItems'}>
+                                <input className={"checkbox"} type="checkbox"
+                                       defaultChecked={this.state.checkboxList[0]}
+                                       onChange={() => this.handleChangeChk(0)}/>
+                                <input className={"checkbox"} type="checkbox"
+                                       defaultChecked={this.state.checkboxList[1]}
+                                       onChange={() => this.handleChangeChk(1)}/>
+                                <input className={"checkbox"} type="checkbox"
+                                       defaultChecked={this.state.checkboxList[2]}
+                                       onChange={() => this.handleChangeChk(2)}/>
+                                <input className={"checkbox"} type="checkbox"
+                                       defaultChecked={this.state.checkboxList[3]}
+                                       onChange={() => this.handleChangeChk(3)}/>
+                                <input className={"checkbox"} type="checkbox"
+                                       defaultChecked={this.state.checkboxList[4]}
+                                       onChange={() => this.handleChangeChk(4)}/>
+                                <input className={"checkbox"} type="checkbox"
+                                       defaultChecked={this.state.checkboxList[5]}
+                                       onChange={() => this.handleChangeChk(5)}/>
+                                <input className={"checkbox"} type="checkbox"
+                                       defaultChecked={this.state.checkboxList[6]}
+                                       onChange={() => this.handleChangeChk(6)}/>
+                                <input className={"checkbox"} type="checkbox"
+                                       defaultChecked={this.state.checkboxList[7]}
+                                       onChange={() => this.handleChangeChk(7)}/>
+                            </div>
                         </Div>
 
 
                         <Div>
                             {!this.state.is_started ?
-                                <Button onClick={() => this.handleStartButton(this.state.is_started)}
-                                        mode="commerce">Старт</Button>
+                                <Button className={'startButton'}
+                                        onClick={() => this.handleStartButton(this.state.is_started)}
+                                        mode="commerce"
+                                        size="l"
+                                >
+                                    Старт
+                                </Button>
                                 :
-                                <Button onClick={() => this.handleStartButton(this.state.is_started)}
-                                        mode="destructive">Стоп</Button>
+                                <Button className={'startButton'}
+                                        onClick={() => this.handleStartButton(this.state.is_started)}
+                                        mode="destructive"
+                                        size="l"
+                                >
+                                    Стоп
+                                </Button>
                             }
                         </Div>
                     </Group>
