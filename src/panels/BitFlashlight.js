@@ -4,19 +4,19 @@ import {
     Div,
     Panel,
     PanelHeader,
-    View, PanelHeaderContent, Checkbox
+    View, PanelHeaderContent, Checkbox, Button
 } from "@vkontakte/vkui";
 import bridge from "@vkontakte/vk-bridge";
 import BitFlashlight from "./BitFlashlight.css"
 
+
 class TeamCard extends React.Component {
-
-
     constructor(props) {
         super(props);
         this.state = {
             is_available: 123,
-            checkboxList: [true, true, true, true, true, true, true, true]
+            checkboxList: [true, true, true, true, true, true, true, true],
+            is_started: false
         }
     }
 
@@ -44,6 +44,15 @@ class TeamCard extends React.Component {
         console.log(this.state.checkboxList[number]);
     }
 
+
+    handleStartButton(is_started) {
+        this.setState({
+            checkboxList: this.state.checkboxList,
+            is_started: !is_started
+        })
+        console.log(this.state.is_started)
+
+    }
 
     render() {
         this.initFlashlight();
@@ -102,6 +111,18 @@ class TeamCard extends React.Component {
                             <input className={"checkbox"} type="checkbox" defaultChecked={this.state.checkboxList[7]}
                                    onChange={() => this.handleChangeChk(7)}/>
 
+                        </Div>
+
+
+                        <Div>
+                            {this.state.is_started +'as'}
+                            {!this.state.is_started ?
+                                <Button onClick={() => this.handleStartButton(this.state.is_started)}
+                                        mode="commerce">Старт</Button>
+                                :
+                                <Button onClick={() => this.handleStartButton(this.state.is_started)}
+                                        mode="destructive">Стоп</Button>
+                            }
                         </Div>
                     </Group>
 
